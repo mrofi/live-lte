@@ -164,41 +164,6 @@ desired effect
             <li class="@if(request()->is('admin/customer/create'))active @endif"><a href="{{ asset('admin/customer/create') }}"><i class="fa fa-plus"></i>Tambah</a></li>
           </ul>
         </li>
-        <li class="@if(request()->is('admin/brand*'))active @endif treeview">
-          <a href="{{ asset('admin/brand') }}"><i class="fa fa-tag"></i> <span>Merk</span> <i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li class="@if(request()->is('admin/brand'))active @endif"><a href="{{ asset('admin/brand') }}"><i class="fa fa-list"></i>List</a></li>
-            <li class="@if(request()->is('admin/brand/create'))active @endif"><a href="{{ asset('admin/brand/create') }}"><i class="fa fa-plus"></i>Tambah</a></li>
-          </ul>
-        </li>
-        <li class="@if(request()->is('admin/kategori*'))active @endif treeview">
-          <a href="{{ asset('admin/kategori') }}"><i class="fa fa-list"></i> <span>Kategori Produk</span> <i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li class="@if(request()->is('admin/kategori'))active @endif"><a href="{{ asset('admin/kategori') }}"><i class="fa fa-list"></i>List</a></li>
-            <li class="@if(request()->is('admin/kategori/create'))active @endif"><a href="{{ asset('admin/kategori/create') }}"><i class="fa fa-plus"></i>Tambah</a></li>
-          </ul>
-        </li>
-        <li class="@if(request()->is('admin/produk*'))active @endif treeview">
-          <a href="{{ asset('admin/produk') }}"><i class="fa fa-dropbox"></i> <span>Produk</span> <i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li class="@if(request()->is('admin/produk'))active @endif"><a href="{{ asset('admin/produk') }}"><i class="fa fa-list"></i>List</a></li>
-            <li class="@if(request()->is('admin/produk/create'))active @endif"><a href="{{ asset('admin/produk/create') }}"><i class="fa fa-plus"></i>Tambah</a></li>
-          </ul>
-        </li>
-        <li class="@if(request()->is('admin/pesanan*'))active @endif treeview">
-          <a href="{{ asset('admin/pesanan') }}"><i class="fa fa-shopping-cart"></i> <span>Pesanan</span> <i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li class="@if(request()->is('admin/pesanan'))active @endif"><a href="{{ asset('admin/pesanan') }}"><i class="fa fa-list"></i>List</a></li>
-            <li class="@if(request()->is('admin/pesanan/create'))active @endif"><a href="{{ asset('admin/pesanan/create') }}"><i class="fa fa-plus"></i>Tambah</a></li>
-          </ul>
-        </li>
-        <li class="@if(request()->is('admin/setting*'))active @endif treeview">
-          <a href="{{ asset('admin/setting') }}"><i class="fa fa-cog"></i> <span>Setting</span> <i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li class="@if(request()->is('admin/setting'))active @endif"><a href="{{ asset('admin/setting') }}"><i class="fa fa-list"></i>List</a></li>
-            <li class="@if(request()->is('admin/setting/create'))active @endif"><a href="{{ asset('admin/setting/create') }}"><i class="fa fa-plus"></i>Tambah</a></li>
-          </ul>
-        </li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
@@ -215,9 +180,11 @@ desired effect
         <small>{{ $deskripsi or 'Optional description' }}</small>
       </h1>
       <ol class="breadcrumb">
+      @if(isset($breadcrumbLevel))
         <li><a href="{{ $breadcrumb1Url or '#' }}"><i class="fa {{ $breadcrumb1Icon or 'fa-dashboard' }}"></i> {{ $breadcrumb1 or 'Home Admin' }}</a></li>
         @if($breadcrumbLevel >= 2)<li class="{{ $breadcrumb2Class or 'active' }}"><a href="{{ $breadcrumb2Url or 'javascript:;' }}" ><i class="fa {{ $breadcrumb2Icon or 'fa-dashboard' }}"></i> {{ $breadcrumb2 or 'Here' }}</a></li>@endif
         @if($breadcrumbLevel >= 3)<li class="{{ $breadcrumb3Class or 'active' }}"><a href="{{ $breadcrumb3Url or 'javascript:;' }}" >{{ $breadcrumb3 or 'Here' }}</a></li>@endif
+      @endif
       </ol>
     </section>
 
